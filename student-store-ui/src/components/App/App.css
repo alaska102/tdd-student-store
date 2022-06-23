@@ -5,6 +5,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: row;
+  background-color:rgba(196,162,135,0.2);
 }
 .app main {
   width: 100%;

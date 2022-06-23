@@ -1,0 +1,152 @@
+.product-grid-content {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.best-selling-title {
+    margin: 10px 0 30px;
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+}
+
+.grid {
+    grid-gap:10px;
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+
+
+.sub-navbar {
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.subnav-content {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.subnav-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    margin-right: 40px;
+    border-radius: 20px;
+
+}
+
+.subnav-input {
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 8px 0 0 8px;
+    border: solid 1px #e4e4e4;
+    flex: 1;
+    font-size: 16px;
+
+}
+
+.sub-navbar .subnav-content .search-bar i {
+    height: 40px;
+    width: 40px;
+    background: #8EB1C7;
+    color: #fff;
+    fill: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 300px;
+    min-width: 400px;
+}
+
+.sub-navbar .subnav-content .subnav-row .row-links {
+    color: #969696;
+    margin-right: 10px;
+    border: none;
+}
+
+.cart {
+    color: #fff;
+    background: #8EB1C7;
+    width: 170px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    border-radius: 10px;
+}
+
+.cart-a {
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+}
+
+.sub-navbar .subnav-content .subnav-row .row-links .cart .cart-a i {
+    color: #fff;
+    margin: 0 5px;
+
+}
+
+.sub-navbar .subnav-content .subnav-row i {
+    border: none;
+}
+
+.subnav-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    list-style-type: none;
+    height: 40px;
+    font-weight: 500;
+}
+
+.sn-h {
+    cursor: pointer;
+    
+    border: none;
+    background: transparent;
+    outline: none;
+    font-weight: 500;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.material-icons {
+    border-radius: 5px;
+}

@@ -1,0 +1,14 @@
+.not-found {
+    padding: 0 100px 0 100px;
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.not-found-text {
+    text-align: center;
+    font-size: 200px;
+    color: #8EB1C7;
+}

@@ -6,17 +6,17 @@
   background-color: #533745;
   padding: 0 40px;
   position: fixed;
-  top: 0;
 }
 
 .nav-link {
   font-weight: 550;
   width: 100%;
-  padding-left: 150px;
+  margin-left: 50px;
 }
 
 .nav-content {
   max-width: 1400px;
+  padding-left: 150px;
   width: 100%;
   margin: 0 auto;
   display: flex;

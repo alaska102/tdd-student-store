@@ -4,8 +4,8 @@
 
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
-// Include your gif here
-
+![](http://g.recordit.co/hN19OUi9gl.gif)
+![](http://g.recordit.co/o6UYNzNaHK.gif)
 ### Application Features
 
 #### Core Features
@@ -285,19 +285,19 @@ The following specifications were met on the Express backend and the React front
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Week 2: I think the labs did a good job introducing components and React. The Twitter lab especially made certain things, like how to render different pieces a lot more clear. 
+
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+Week 2: If I had more time, I would spend more time working on making the website more responsive. Although I used a dynamic grid, I think I could have been better with making the text on the Hero componenet more responsive. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Week 2: I think the Checkout & Shopping Cart pages could have had a better UI. I think I followed the example site too much instead of letting my personality shine through. For example, I think it would have been better to not have used the sidebar for the recipt page, rather a popout could have been better. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
 
 ### Shout out
 

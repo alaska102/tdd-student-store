@@ -29,6 +29,8 @@ export default function ProductGrid({
     return product.name.toLowerCase().includes(searchValue);
   });
 
+  var gridTitle = "Best Selling Products"; 
+
   React.useEffect(() => {
     setSearchValue("");
   }, [currentTab]);
@@ -104,10 +106,11 @@ export default function ProductGrid({
                 id="accessories"
                 style={
                   currentTab == "accessories"
-                    ? { borderBottom: "solid 2px #8EB1C7" }
+                    ? { borderBottom: "solid 2px #8EB1C7"}
                     : null
                 }
                 onClick={() => setCurrentTab("accessories")}
+                
               >
                 Accessories
               </button>
@@ -128,7 +131,7 @@ export default function ProductGrid({
         </div>
       </div>
       <div className="product-grid-content">
-        <h3 className="best-selling-title">Best Selling Products</h3>
+      <h3 className="grid-title">{gridTitle}</h3>
         <div className="grid">
           {currentTab == "all" &&
             products.map((product, i) => (

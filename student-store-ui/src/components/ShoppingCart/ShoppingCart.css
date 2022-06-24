@@ -2,19 +2,17 @@
     width: 100%;
   }
   
-  .sc-table {
+  .shopping-cart-table {
     width: 450px;
     margin-left:40px;
-    color: #fff;
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    border: solid 1px #e4e4e4;
-    border-radius: 5px;
+    border-radius: 10px;
     z-index: 100;
   }
   
-  .sc-title {
+  .shopping-cart-title {
     text-align: center;
     width: 100%;
     color: #fff;
@@ -24,8 +22,10 @@
   .header-row {
     display: flex;
     height: 50px;
-    background-color: #533745;
+    background-color: #AB4E68;
     margin-bottom: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   
   .flex-2 {
@@ -34,7 +34,7 @@
     justify-content: center;
   }
   
-  .shopping-cart .sc-table .header-row span {
+  .shopping-cart .shopping-cart-table .header-row span {
     flex: 1;
     color: #fff;
     align-items: center;
@@ -78,7 +78,6 @@
   .receipt {
     display: flex;
     flex-direction: row;
-    background-color: rgb(255, 255, 255);
     border-radius: 4px;
     width: 100%;
     margin-top: 10px;
@@ -113,7 +112,6 @@
     font-weight: bold;
   }
   
-  .subtotal,
-  .total-price {
+  .subtotal, .total-price {
     margin-right: 30px;
   }

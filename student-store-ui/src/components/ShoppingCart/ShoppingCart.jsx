@@ -1,23 +1,10 @@
 import * as React from "react";
 import "./ShoppingCart.css";
 
-export default function ShoppingCart({ 
-    isOpen,
-    products,
-    shoppingCart 
-}) {
+export default function ShoppingCart({ isOpen, products, shoppingCart }) {
+  const [subtotal, setSubtotal] = React.useState(0);
+  const TAX_RATE = 0.0875;
 
-  const TAX_RATE = .0875
-  const getPriceFormat = (price) => {
-    const intPart = parseInt(price).toString();
-    const auxFloatPart = (price - intPart).toFixed(2);
-    const floatPart = auxFloatPart.substring(
-      auxFloatPart.length - 2,
-      auxFloatPart.length
-    );
-  
-    return `$${intPart}.${floatPart}`;
-  };
   const getProductNameAndPrice = (itemId) => {
     for (let i = 0; i < products.length; i++) {
       if (itemId == products[i].id) {
@@ -25,15 +12,18 @@ export default function ShoppingCart({
       }
     }
   };
-
-  const getSubTotal = () => {
-    let subtotal = 0;
+  
+  React.useEffect(() => {
+    setSubtotal(0);
+    let count = 0;
     for (let i = 0; i < shoppingCart.length; i++) {
-      subtotal +=
-        products[shoppingCart[i].itemId - 1].price * shoppingCart[i].quantity;
+      let cart = 0;
+      let unitPrice = getProductNameAndPrice(shoppingCart[i].itemId)[1];
+      cart= shoppingCart[i].quantity * unitPrice;
+      count = count + cart;
     }
-    return subtotal;
-  };
+    setSubtotal(count);
+  }, [shoppingCart]);
 
 
   return (
@@ -52,8 +42,9 @@ export default function ShoppingCart({
             <span className="center">Unit Price</span>
             <span className="center">Cost</span>
           </div>
+
           {shoppingCart.map((item, i) => (
-            <div className="product-row">
+            <div key={i} className="product-row">
               <span className="flex-2 cart-product-name">
                 {getProductNameAndPrice(item.itemId)[0]}
               </span>
@@ -64,6 +55,7 @@ export default function ShoppingCart({
                 ${getProductNameAndPrice(item.itemId)[1].toFixed(2)}
               </span>
               <span className="center cart-product-subtotal">
+                $
                 {(
                   item.quantity * getProductNameAndPrice(item.itemId)[1]
                 ).toFixed(2)}
@@ -72,21 +64,17 @@ export default function ShoppingCart({
           ))}
           <div className="receipt">
             <span className="receipt-subtotal">Subtotal</span>
-            <span></span>
-            <span></span>
-            <span className="subtotal">{getPriceFormat(getSubTotal())}</span>
+            <span className="subtotal">${subtotal.toFixed(2)}</span>
           </div>
           <div className="receipt-taxes">
             <span className="receipt-subtotal">Taxes and Fees</span>
-            <span></span>
-            <span></span>
-            <span className="subtotal">{getPriceFormat(getSubTotal() * (TAX_RATE))}</span>
+            <span className="subtotal">${(subtotal * TAX_RATE).toFixed(2)}</span>
           </div>
           <div className="receipt-total">
             <span className="receipt-subtotal">Total</span>
-            <span></span>
-            <span></span>
-            <span className="total-price">{getPriceFormat(getSubTotal() * (TAX_RATE + 1))}</span>
+            <span className="total-price">
+              ${(subtotal * (TAX_RATE + 1)).toFixed(2)}
+            </span>
           </div>
         </div>
       )}

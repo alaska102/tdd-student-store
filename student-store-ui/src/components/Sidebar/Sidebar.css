@@ -17,7 +17,6 @@
     overflow: hidden;
     padding-bottom: 2rem;
     background: #533745;
-    border-right: solid 1px white;
 }
 
 .sidebar-open {
@@ -35,7 +34,6 @@
     overflow: hidden;
     padding-bottom: 2rem;
     background: #533745;
-    border-right: solid 1px white;
 }
 
 .toggle-button {
@@ -43,7 +41,6 @@
     width: 60px;
     padding:0;
     cursor: pointer;
-    
     border: none;
     background: transparent;
     outline: none;

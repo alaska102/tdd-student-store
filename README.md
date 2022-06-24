@@ -18,12 +18,12 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 - [X] User can click to expand the shopping cart in the left navigation.
 - [X] User can click the '+' button on a product cart to increment that product in the shopping cart.
 - [X] User can click the '-' button on a product cart to increment that product in the shopping cart.
-- [ ] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
-- [ ] User can check out, and can view receipt upon completion.
+- [X] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
+- [X] User can check out, and can view receipt upon completion.
 
 #### Stretch Features
 
-- [ ] User can click in the top navigation bar to scroll to the relevant section.
+- [X] User can click in the top navigation bar to scroll to the relevant section.
 - [X] User sees a "not found" display when searching for a nonexistent product.
 - [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
 - [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
@@ -37,63 +37,63 @@ The following specifications were met on the Express backend and the React front
 
 **App.jsx**
 
-  - [ ] The core App component that contains the routes for the app and does the initial data fetching
-  - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Should render the `Home.jsx` component
-    - [ ] `/products/:productId` - should render the `ProductDetail` component
-    - [ ] `*` - anything else should render the `NotFound` component
-  - [ ] Renders the `Navbar` component on every route
-  - [ ] Renders the `Sidebar` component on every route
-  - [ ] Should create **at least** the following state variables:
-    - [ ] `products` - an array of product objects that is initially empty.
-    - [ ] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
-    - [ ] `error` - a variable used to display a message when something goes wrong with the API requests.
-    - [ ] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
-    - [ ] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
-      - [ ] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
-      - [ ] When passed down to other components as a prop, it should formatted as an array of objects.
-      - [ ] Each object in the array should have two fields:
-        - [ ] The `itemId` field should store the `id` of the item being purchased.
-        - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
-    - [ ] `checkoutForm` - the user's information that will be sent to the API when they checkout.
-  - [ ] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
-    - [ ] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
-    - [ ] When the request completes successfully, it should store the `products` returned by the response in state.
-    - [ ] If the request does not complete successfully, or there are no `products` found in the response,
+  - [X] The core App component that contains the routes for the app and does the initial data fetching
+  - [X] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [X] `/` - Should render the `Home.jsx` component
+    - [X] `/products/:productId` - should render the `ProductDetail` component
+    - [X] `*` - anything else should render the `NotFound` component
+  - [X] Renders the `Navbar` component on every route
+  - [X] Renders the `Sidebar` component on every route
+  - [X] Should create **at least** the following state variables:
+    - [X] `products` - an array of product objects that is initially empty.
+    - [X] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
+    - [X] `error` - a variable used to display a message when something goes wrong with the API requests.
+    - [X] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
+    - [X] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
+      - [X] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
+      - [X] When passed down to other components as a prop, it should formatted as an array of objects.
+      - [X] Each object in the array should have two fields:
+        - [X] The `itemId` field should store the `id` of the item being purchased.
+        - [X] The `quantity` field should store a number representing how many of that item the user is purchasing.
+    - [X] `checkoutForm` - the user's information that will be sent to the API when they checkout.
+  - [X] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
+    - [X] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
+    - [X] When the request completes successfully, it should store the `products` returned by the response in state.
+    - [X] If the request does not complete successfully, or there are no `products` found in the response,
             it should create an error message and store it in the `error` state variable.
-  - [ ] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
-    - [ ] Define as many as are needed.
-    - [ ] At minimum, **create these five handlers**:
-      - [ ] The **`handleOnToggle`** function. When called...
-        - [ ] It should toggle the open/closed state of the `Sidebar`.
-      - [ ] The **`handleAddItemToCart`** function. When called...
-        - [ ] It should accept a single argument - `productId`
-        - [ ] It should add that product to the `shoppingCart` if it doesn't exist, and set its quantity to `1`.
-        - [ ] If it does exist, it should increase the quantity by `1`.
-        - [ ] It should add the price of the product to the total price of the `shoppingCart`.
-      - [ ] The **`handleRemoveItemFromCart`** function. When called...
-        - [ ] It should accept a single argument - `productId`
-        - [ ] It should decrease the quantity of the item in the `shoppingCart` by `1`, but only if it already exists.
-        - [ ] If it doesn't exist, the function should do nothing.
-        - [ ] If the new quantity is `0`, it should remove the item from the `shoppingCart`
-      - [ ] The **`handleOnCheckoutFormChange`** function. When called...
-        - [ ] It should receive two arguments:
-          - [ ] `name` - the `name` attribute of the input being updated
-          - [ ] `value` - the new value to set for that input
-        - [ ] It should update the `checkoutForm` object with the new value from the correct input(s)
-      - [ ] The **`handleOnSubmitCheckoutForm`** function. When called...
-        - [ ] It should submit the user's order to the API
-        - [ ] To submit the user's order, it should leverage the `axios.post` method to send a `POST` request to the `/store` endpoint.
-        - [ ] The body of that `POST` request should be an object with two fields:
-          - [ ] The `user` field:
-            - [ ] Should be an object containing `name` and `email` properties
-            - [ ] Each property should be set to the correct value found in the `checkoutForm`
-          - [ ] The `shoppingCart` field:
-            - [ ] Should contain the user's order formatted as an array of objects.
-            - [ ] Each object in the array should have two fields:
-              - [ ] The `itemId` field should store the `id` of the item being purchased.
-              - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
-            - [ ] Don't include the `total` price here, since we'll be calculating that on the backend. Remember to never trust the client!
+  - [X] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
+    - [X] Define as many as are needed.
+    - [X] At minimum, **create these five handlers**:
+      - [X] The **`handleOnToggle`** function. When called...
+        - [X] It should toggle the open/closed state of the `Sidebar`.
+      - [X] The **`handleAddItemToCart`** function. When called...
+        - [X] It should accept a single argument - `productId`
+        - [X] It should add that product to the `shoppingCart` if it doesn't exist, and set its quantity to `1`.
+        - [X] If it does exist, it should increase the quantity by `1`.
+        - [X] It should add the price of the product to the total price of the `shoppingCart`.
+      - [X] The **`handleRemoveItemFromCart`** function. When called...
+        - [X] It should accept a single argument - `productId`
+        - [X] It should decrease the quantity of the item in the `shoppingCart` by `1`, but only if it already exists.
+        - [X] If it doesn't exist, the function should do nothing.
+        - [X] If the new quantity is `0`, it should remove the item from the `shoppingCart`
+      - [X] The **`handleOnCheckoutFormChange`** function. When called...
+        - [X] It should receive two arguments:
+          - [X] `name` - the `name` attribute of the input being updated
+          - [X] `value` - the new value to set for that input
+        - [X] It should update the `checkoutForm` object with the new value from the correct input(s)
+      - [X] The **`handleOnSubmitCheckoutForm`** function. When called...
+        - [X] It should submit the user's order to the API
+        - [X] To submit the user's order, it should leverage the `axios.post` method to send a `POST` request to the `/store` endpoint.
+        - [X] The body of that `POST` request should be an object with two fields:
+          - [X] The `user` field:
+            - [X] Should be an object containing `name` and `email` properties
+            - [X] Each property should be set to the correct value found in the `checkoutForm`
+          - [X] The `shoppingCart` field:
+            - [X] Should contain the user's order formatted as an array of objects.
+            - [X] Each object in the array should have two fields:
+              - [X] The `itemId` field should store the `id` of the item being purchased.
+              - [X] The `quantity` field should store a number representing how many of that item the user is purchasing.
+            - [X] Don't include the `total` price here, since we'll be calculating that on the backend. Remember to never trust the client!
 
 **Navbar.jsx**
 
@@ -198,48 +198,48 @@ The following specifications were met on the Express backend and the React front
 **ShoppingCart.jsx**
 
   - [X] Should render JSX that is wrapped by a `div` element with the `className` of `shopping-cart`
-  - [ ] Should accept **at least** the following props (and probably a few more):
+  - [X] Should accept **at least** the following props (and probably a few more):
     - `isOpen` - boolean representing the open/closed state of the Sidebar
     - `products` - the array of products fetched from the API
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
-  - [ ] For every item in the `shoppingCart`:
-    - [ ] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
-    - [ ] It should display the `quantity` of the item in an element with the `className` of `cart-product-quantity`
-  - [ ] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
-  - [ ] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
-  - [ ] If no items exist in the `shoppingCart`, it should render this message: `"No items added to cart yet. Start shopping now!"` inside an element with the `className` of `notification`
+  - [X] For every item in the `shoppingCart`:
+    - [X] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
+    - [X] It should display the `quantity` of the item in an element with the `className` of `cart-product-quantity`
+  - [X] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
+  - [X] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
+  - [X] If no items exist in the `shoppingCart`, it should render this message: `"No items added to cart yet. Start shopping now!"` inside an element with the `className` of `notification`
 
 **CheckoutForm.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with the `className` of `checkout-form`
-  - [ ] Should accept **at least** the following props:
+  - [X] Should render JSX that is wrapped by a `div` element with the `className` of `checkout-form`
+  - [X] Should accept **at least** the following props:
     - `isOpen` - boolean
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
     - `checkoutForm` - the form state for the `CheckoutForm` component
     - `handleOnCheckoutFormChange` - handler function to update the `checkoutForm`
     - `handleOnSubmitCheckoutForm` - handler function to submit the user's order to the API
-  - [ ] Should render two `input` elements, each with the `className` of `checkout-form-input`
-    - [ ] The `checkoutForm` prop should supply the correct props needed to create the two controlled inputs:
-      - [ ] The first input should have:
-        - [ ] the `type` prop set to `email`
-        - [ ] the `name` prop set to `email`
-        - [ ] the `placeholder` prop set to `student@codepath.org`
-        - [ ] the `value` prop set by `checkoutForm.email`.
-        - [ ] a valid `onChange` prop that uses the `handleOnCheckoutFormChange` function to update the `checkoutForm` state
-      - [ ] The second input should have:
-        - [ ] the `type` prop set to `text`
-        - [ ] the `name` prop set to `name`
-        - [ ] the `placeholder` prop set to `Student Name`
-        - [ ] the `value` prop set by `checkoutForm.name`.
-        - [ ] a valid `onChange` prop that uses the `handleOnCheckoutFormChange` function to update the `checkoutForm` state
-  - [ ] Should render a `button` element with the `className` of `checkout-button`.
-    - [ ] It should contain the text `Checkout`.
-    - [ ] When clicked, it should call the `handleOnSubmit` function.
-      - [ ] If that request fails, the `CheckoutForm` component should display an error message inside an element with the `className` of `error`.
-      - [ ] If the `POST` request is successful...
-        - [ ] The `CheckoutForm` component should display a success message that contains the text `"Success!"` inside an element with the `className` of `success`.
-        - [ ] The `shoppingCart` should be emptied
-        - [ ] The `checkoutForm` should be reset to its default state.
+  - [X] Should render two `input` elements, each with the `className` of `checkout-form-input`
+    - [X] The `checkoutForm` prop should supply the correct props needed to create the two controlled inputs:
+      - [X] The first input should have:
+        - [X] the `type` prop set to `email`
+        - [X] the `name` prop set to `email`
+        - [X] the `placeholder` prop set to `student@codepath.org`
+        - [X] the `value` prop set by `checkoutForm.email`.
+        - [X] a valid `onChange` prop that uses the `handleOnCheckoutFormChange` function to update the `checkoutForm` state
+      - [X] The second input should have:
+        - [X] the `type` prop set to `text`
+        - [X] the `name` prop set to `name`
+        - [X] the `placeholder` prop set to `Student Name`
+        - [X] the `value` prop set by `checkoutForm.name`.
+        - [X] a valid `onChange` prop that uses the `handleOnCheckoutFormChange` function to update the `checkoutForm` state
+  - [X] Should render a `button` element with the `className` of `checkout-button`.
+    - [X] It should contain the text `Checkout`.
+    - [X] When clicked, it should call the `handleOnSubmit` function.
+      - [X] If that request fails, the `CheckoutForm` component should display an error message inside an element with the `className` of `error`.
+      - [X] If the `POST` request is successful...
+        - [X] The `CheckoutForm` component should display a success message that contains the text `"Success!"` inside an element with the `className` of `success`.
+        - [X] The `shoppingCart` should be emptied
+        - [X] The `checkoutForm` should be reset to its default state.
 
 **Server** - Create an Express server
   - [ ] Wire up the appropriate middleware and error handlers in the `app.js` file

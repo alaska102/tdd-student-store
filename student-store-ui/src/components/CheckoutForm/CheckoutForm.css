@@ -1,39 +1,87 @@
-.cf-title {
-    color: white;
-    text-align: center;
-  }
-  .checkout-form {
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .label {
-    width: 100%;
-    color: white;
-    font-size: large;
-    padding-bottom: 10px;
-  }
-  
-  .checkout-form-input {
-    width: 100%;
-    height: 36px;
-    padding: 0 15px;
-    border-radius: 8px;
-    border: solid 1px #e4e4e4;
-    flex: 1;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .checkout-button {
-    margin: 15px 180px 0px 180px;
-    padding: 12px;
-    font-size: 18px;
-    cursor: pointer;
-    background: #AB4E68;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    width: 160px;
-  }
+.checkform-title,
+.checkout-form-input-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.checkout-form {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-info {
+  width: 100%;
+  padding: 10px;
+}
+
+.checkout-input-false {
+  text-align: left;
+  color: white;
+}
+
+.label {
+  width: 100%;
+  color: white;
+  font-size: large;
+  padding-bottom: 10px;
+  margin: 3px 55px 0px 55px;
+
+}
+
+.checkout-form-input {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 40px;
+  padding-left: 10px;
+  margin: 3px 50px 0px 50px;
+  border-radius: 8px;
+  flex: 1;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.exit-button {
+  margin: 15px 180px 0px 180px;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  background: #AB4E68;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  width: 160px;
+}
+
+.checkout-input-true {
+  color: white;
+  width: 100%;
+  font-size: 18px;
+}
+
+.success {
+  color: white;
+  font-size: 30px;
+}
+
+.error {
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 50px;
+}
+
+.checkout-button {
+  margin: 15px 180px 0px 180px;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  background: #AB4E68;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  width: 160px;
+}

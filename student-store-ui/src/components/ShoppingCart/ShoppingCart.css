@@ -1,117 +1,117 @@
 .shopping-cart {
-    width: 100%;
-  }
-  
-  .shopping-cart-table {
-    width: 450px;
-    margin-left:40px;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-    z-index: 100;
-  }
-  
-  .shopping-cart-title {
-    text-align: center;
-    width: 100%;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .header-row {
-    display: flex;
-    height: 50px;
-    background-color: #AB4E68;
-    margin-bottom: 15px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .flex-2 {
-    padding-left: 10px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .shopping-cart .shopping-cart-table .header-row span {
-    flex: 1;
-    color: #fff;
-    align-items: center;
-    font-size: 17px;
-    font-weight: 600;
-    margin-left: 15px;
-  }
-  
-  .center {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .product-row {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 20px;
-    margin-top: 10px;
-    border-bottom: solid 1px #e4e4e4;
-  }
-  
-  .notification {
-    width: 100%;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .product-row {
-    z-index: 10000;
-    position: relative;
-  }
-  
-  .cart-product-name,
-  .cart-product-quantity,
-  .cart-product-price,
-  .cart-product-subtotal {
-    color: black;
-    flex: 1;
-  }
-  
-  .receipt {
-    display: flex;
-    flex-direction: row;
-    border-radius: 4px;
-    width: 100%;
-    margin-top: 10px;
-    position: relative;
-    z-index: 100000;
-    color: black;
-    align-items: center;
-    justify-content: center;
-  }
-  .receipt-taxes,
-  .receipt-total {
-    display: flex;
-    flex-direction: row;
-    background-color: #fff;
-    border-radius: 4px;
-    width: 100%;
-  
-    position: relative;
-    z-index: 100000;
-    color: black;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .receipt-subtotal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 0;
-    flex: 1;
-    margin-left: 10px;
-    font-weight: bold;
-  }
-  
-  .subtotal, .total-price {
-    margin-right: 30px;
-  }
+  width: 100%;
+}
+
+.shopping-cart-table {
+  width: 450px;
+  margin-left:40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.shopping-cart-title {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.header-row {
+  display: flex;
+  height: 50px;
+  background-color: #AB4E68;
+  margin-bottom: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.flex-2 {
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-cart .shopping-cart-table .header-row span {
+  flex: 1;
+  color: #fff;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.product-row {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+  margin-top: 10px;
+  border-bottom: solid 1px #e4e4e4;
+}
+
+.notification {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.product-row {
+  z-index: 2;
+  position: relative;
+}
+
+.cart-product-name,
+.cart-product-quantity,
+.cart-product-price,
+.cart-product-subtotal {
+  color: black;
+  flex: 1;
+}
+
+.receipt {
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.receipt-taxes,
+.receipt-total {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 4px;
+  width: 100%;
+  position: relative;
+  z-index: 100000;
+  color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.receipt-subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  flex: 1;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.subtotal, .total-price {
+  margin-right: 30px;
+}

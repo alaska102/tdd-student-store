@@ -17,6 +17,8 @@ export default function App() {
   let [isOpen, setIsOpen] = React.useState(false);
   let [shoppingCart, setShoppingCart] = React.useState([]);
   let [checkoutForm, setCheckoutForm] = React.useState({ name: "", email: "" });
+  let [checkoutFormSubmitSuccess, setCheckoutFormSubmitSuccess] = React.useState(false);
+  let [receipt, setReceipt] = React.useState({});
 
   React.useEffect(() => {
     axios
@@ -43,22 +45,14 @@ export default function App() {
   };
 
   const handleAddItemToCart = (productId) => {
-    let scCopy = shoppingCart;
-    let scCopy2 = shoppingCart;
-    for (var i = 0; i < shoppingCart.length; i++) {
-      if (shoppingCart[i].itemId == productId) {
-        let newSC = shoppingCart
-          .slice(0, i)
-          .concat([
-            { itemId: productId, quantity: shoppingCart[i].quantity + 1 },
-          ]);
-        newSC = newSC.concat(scCopy.slice(i + 1));
-        setShoppingCart(newSC);
-        return;
-      }
+    let item = shoppingCart.find((x) => x.itemId === productId);
+
+    if (item) {
+      item.quantity++;
+      setShoppingCart([...shoppingCart]);
+    } else {
+      setShoppingCart([...shoppingCart, { itemId: productId, quantity: 1 }]);
     }
-    scCopy.push({ itemId: productId, quantity: 1 });
-    setShoppingCart(scCopy);
   };
 
   const handleRemoveItemFromCart = (productId) => {
@@ -67,7 +61,6 @@ export default function App() {
     for (var i = 0; i < shoppingCart.length; i++) {
       if (shoppingCart[i].itemId == productId) {
         if (shoppingCart[i].quantity !== 1) {
-
           let newSC = scCopy2
             .slice(0, i)
             .concat([
@@ -88,17 +81,23 @@ export default function App() {
   };
 
   const handleOnSubmitCheckoutForm = () => {
+    setError("");
     axios
-      .post("https://codepath-store-api.herokuapp.com/store/checkout", {
+      .post("https://codepath-store-api.herokuapp.com/store", {
         user: { name: checkoutForm.name, email: checkoutForm.email },
         shoppingCart: shoppingCart,
       })
       .then((response) => {
         setShoppingCart([]);
         setCheckoutForm({ email: "", name: "" });
+        if (response.status == 201) {
+          setCheckoutFormSubmitSuccess(true);
+          setReceipt({ ...response.data.purchase });
+        }
       })
       .catch((e) => {
-        setError(e);
+        setError(e.response.data.error.message);
+        setCheckoutFormSubmitSuccess(false);
       });
   };
 
@@ -120,6 +119,11 @@ export default function App() {
                     handleOnCheckoutFormChange={handleOnCheckoutFormChange}
                     handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
                     handleOnToggle={handleOnToggle}
+                    setCheckoutFormSubmitSuccess={setCheckoutFormSubmitSuccess}
+                    checkoutFormSubmitSuccess={checkoutFormSubmitSuccess}
+                    receipt={receipt}
+                    setReceipt={setReceipt}
+                    error={error}
                   />
                   <Home
                     products={products}
@@ -128,6 +132,7 @@ export default function App() {
                     handleAddItemToCart={handleAddItemToCart}
                     handleRemoveItemFromCart={handleRemoveItemFromCart}
                     getQuantity={getQuantity}
+                    checkoutFormSubmitSuccess={checkoutFormSubmitSuccess}
                   />
                 </>
               }
@@ -145,6 +150,11 @@ export default function App() {
                     handleOnCheckoutFormChange={handleOnCheckoutFormChange}
                     handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
                     handleOnToggle={handleOnToggle}
+                    setCheckoutFormSubmitSuccess={setCheckoutFormSubmitSuccess}
+                    checkoutFormSubmitSuccess={checkoutFormSubmitSuccess}
+                    receipt={receipt}
+                    setReceipt={setReceipt}
+                    error={error}
                   />
                   <Hero />
                   <SubNavbar />

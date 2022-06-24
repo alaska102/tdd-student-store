@@ -7,6 +7,7 @@ export default function SubNavbar() {
   React.useEffect(() => {
     setSearchValue("");
   }, [currentTab]);
+  
   return (
     <div className="sub-navbar">
       <div className="subnav-content">
@@ -23,12 +24,12 @@ export default function SubNavbar() {
                 setCurrentTab("");
               }}
             ></input>
-            <i class="material-icons">search</i>
+            <i className="material-icons">search</i>
           </div>
           <div className="row-links">
-            <div class="cart">
+            <div className="cart">
               <a className="cart-a" href="/">
-                My Cart<i class="material-icons">shopping_cart</i>
+                My Cart<i className="material-icons">shopping_cart</i>
               </a>
             </div>
           </div>
@@ -36,7 +37,7 @@ export default function SubNavbar() {
         <div className="subnav-row">
           <div className="subnav-heading">
             <button
-              className="sn-h"
+              className="subnav-header"
               style={
                 currentTab == "all"
                   ? { borderBottom: "solid 2px #8EB1C7" }
@@ -48,7 +49,7 @@ export default function SubNavbar() {
               All Categories
             </button>
             <button
-              className="sn-h"
+              className="subnav-header"
               id="clothing"
               style={
                 currentTab == "clothing"
@@ -60,7 +61,7 @@ export default function SubNavbar() {
               Clothing
             </button>
             <button
-              className="sn-h"
+              className="subnav-header"
               id="food"
               style={
                 currentTab == "food"
@@ -74,7 +75,7 @@ export default function SubNavbar() {
               Food
             </button>
             <button
-              className="sn-h"
+              className="subnav-header"
               id="accessories"
               style={
                 currentTab == "accessories"
@@ -86,7 +87,7 @@ export default function SubNavbar() {
               Accessories
             </button>
             <button
-              className="sn-h"
+              className="subnav-header"
               id="tech"
               style={
                 currentTab == "tech"

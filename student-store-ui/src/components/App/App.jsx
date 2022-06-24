@@ -11,14 +11,14 @@ import Hero from "../Hero/Hero";
 import axios from "axios";
 
 export default function App() {
-  let [products, setProducts] = React.useState([]);
-  let [isFetching, setIsFetching] = React.useState(false);
-  let [error, setError] = React.useState("");
-  let [isOpen, setIsOpen] = React.useState(false);
-  let [shoppingCart, setShoppingCart] = React.useState([]);
-  let [checkoutForm, setCheckoutForm] = React.useState({ name: "", email: "" });
-  let [checkoutFormSubmitSuccess, setCheckoutFormSubmitSuccess] = React.useState(false);
-  let [receipt, setReceipt] = React.useState({});
+  const [products, setProducts] = React.useState([]);
+  const [isFetching, setIsFetching] = React.useState(false);
+  const [error, setError] = React.useState("");
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [shoppingCart, setShoppingCart] = React.useState([]);
+  const [checkoutForm, setCheckoutForm] = React.useState({ name: "", email: "" });
+  const [checkoutFormSubmitSuccess, setCheckoutFormSubmitSuccess] = React.useState(false);
+  const [receipt, setReceipt] = React.useState({});
 
   React.useEffect(() => {
     axios
@@ -56,20 +56,20 @@ export default function App() {
   };
 
   const handleRemoveItemFromCart = (productId) => {
-    let scCopy = shoppingCart;
-    let scCopy2 = shoppingCart;
+    let cartCopy = shoppingCart;
+    let cartCopy2 = shoppingCart;
     for (var i = 0; i < shoppingCart.length; i++) {
       if (shoppingCart[i].itemId == productId) {
         if (shoppingCart[i].quantity !== 1) {
-          let newSC = scCopy2
+          let newSC = cartCopy2
             .slice(0, i)
             .concat([
               { itemId: productId, quantity: shoppingCart[i].quantity - 1 },
             ]);
-          newSC = newSC.concat(scCopy.slice(i + 1));
+          newSC = newSC.concat(cartCopy.slice(i + 1));
           setShoppingCart(newSC);
         } else {
-          let newSC = scCopy2.slice(0, i).concat(scCopy.slice(i + 1));
+          let newSC = cartCopy2.slice(0, i).concat(cartCopy.slice(i + 1));
           setShoppingCart(newSC);
         }
       }

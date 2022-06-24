@@ -19,7 +19,7 @@ export default function CheckoutForm({
   const [hasCheckedOut, setHasCheckedOut] = React.useState(false);
 
 
-  const getProductNameAndPrice = (itemId) => {
+  const getProductInfo = (itemId) => {
     for (let i = 0; i < products.length; i++) {
       if (itemId == products[i].id) {
         return [products[i].name, products[i].price];
@@ -27,7 +27,7 @@ export default function CheckoutForm({
     }
   };
 
-  
+
   return (
     <div className="checkout-form">
       <h1 className="checkform-title">Payment Info</h1>
@@ -42,8 +42,8 @@ export default function CheckoutForm({
             onChange={(evt) =>
               handleOnCheckoutFormChange("email", evt.target.value)
             }
-            className="checkout-form-input"
-          ></input>
+            className="checkout-form-input">
+            </input>
         </div>
       </div>
       <div className="input-field">
@@ -57,8 +57,8 @@ export default function CheckoutForm({
             onChange={(evt) =>
               handleOnCheckoutFormChange("name", evt.target.value)
             }
-            className="checkout-form-input"
-          ></input>
+            className="checkout-form-input">
+            </input>
         </div>
       </div>
       {hasCheckedOut && checkoutFormSubmitSuccess == false && (
@@ -103,11 +103,11 @@ export default function CheckoutForm({
             {receipt.order &&
               receipt.order.map((order, i) => (
                 <li key={i}>
-                  {order.quantity} total {getProductNameAndPrice(order.itemId)[0]}{" "}
+                  {order.quantity} total {getProductInfo(order.itemId)[0]}{" "}
                   purchased at a cost of $
-                  {getProductNameAndPrice(order.itemId)[1]} for a total cost of $
+                  {getProductInfo(order.itemId)[1]} for a total cost of $
                   {(
-                    order.quantity * getProductNameAndPrice(order.itemId)[1]
+                    order.quantity * getProductInfo(order.itemId)[1]
                   ).toFixed(2)}
                   .
                 </li>

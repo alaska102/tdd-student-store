@@ -11,7 +11,7 @@ export default function Hero() {
             <br />
             Find Your Merch!
           </h1>
-          <p className="subtitle">
+          <p className="title2">
             We have all kinds of goodies. Click on any of the items to start
             filling up your shopping cart. Checkout whenever you're ready.
           </p>

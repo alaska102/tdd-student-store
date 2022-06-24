@@ -5,20 +5,20 @@ export default function ShoppingCart({ isOpen, products, shoppingCart }) {
   const [subtotal, setSubtotal] = React.useState(0);
   const TAX_RATE = 0.0875;
 
-  const getProductNameAndPrice = (itemId) => {
+  const getProductInfo = (itemId) => {
     for (let i = 0; i < products.length; i++) {
       if (itemId == products[i].id) {
         return [products[i].name, products[i].price];
       }
     }
   };
-  
+
   React.useEffect(() => {
     setSubtotal(0);
     let count = 0;
     for (let i = 0; i < shoppingCart.length; i++) {
       let cart = 0;
-      let unitPrice = getProductNameAndPrice(shoppingCart[i].itemId)[1];
+      let unitPrice = getProductInfo(shoppingCart[i].itemId)[1];
       cart= shoppingCart[i].quantity * unitPrice;
       count = count + cart;
     }
@@ -46,18 +46,18 @@ export default function ShoppingCart({ isOpen, products, shoppingCart }) {
           {shoppingCart.map((item, i) => (
             <div key={i} className="product-row">
               <span className="flex-2 cart-product-name">
-                {getProductNameAndPrice(item.itemId)[0]}
+                {getProductInfo(item.itemId)[0]}
               </span>
               <span className="center cart-product-quantity">
                 {item.quantity}
               </span>
               <span className="center cart-product-price">
-                ${getProductNameAndPrice(item.itemId)[1].toFixed(2)}
+                ${getProductInfo(item.itemId)[1].toFixed(2)}
               </span>
               <span className="center cart-product-subtotal">
                 $
                 {(
-                  item.quantity * getProductNameAndPrice(item.itemId)[1]
+                  item.quantity * getProductInfo(item.itemId)[1]
                 ).toFixed(2)}
               </span>
             </div>

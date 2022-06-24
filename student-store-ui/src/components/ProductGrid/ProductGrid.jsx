@@ -9,7 +9,7 @@ export default function ProductGrid({
   isFetching,
   setIsFetching,
   getQuantity,
-}) {
+}); {
 
   const [currentTab, setCurrentTab] = React.useState("all");
   const [searchValue, setSearchValue] = React.useState("");

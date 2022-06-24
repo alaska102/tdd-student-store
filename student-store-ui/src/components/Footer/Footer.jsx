@@ -5,10 +5,10 @@ export default function Footer() {
   return (
     <div className="footer">
       <div className="footer-content">
-        <div className="f-col">
-          <p className="f-title">Categories</p>
+        <div className="footer-col">
+          <p className="footer-title">Categories</p>
           <div className="f-body">
-            <p className="f-p">
+            <p className="footer-text">
               All Categories
               <br />
               Clothing
@@ -21,10 +21,10 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="f-col">
-          <p className="f-title">Company</p>
+        <div className="footer-col">
+          <p className="footer-title">Company</p>
           <div className="f-body">
-            <p className="f-p">
+            <p className="footer-text">
               About Us
               <br />
               Find a Store
@@ -37,10 +37,10 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="f-col">
-          <p className="f-title">Support</p>
+        <div className="footer-col">
+          <p className="footer-title">Support</p>
           <div className="f-body">
-            <p className="f-p">
+            <p className="footer-text">
               Contact Us
               <br />
               Money Refund
@@ -53,10 +53,10 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="f-col">
-          <p className="f-title">Account</p>
+        <div className="footer-col">
+          <p className="footer-title">Account</p>
           <div className="f-body">
-            <p className="f-p">
+            <p className="footer-text">
               Login
               <br />
               Register
@@ -68,10 +68,10 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="f-col">
-          <p className="f-title">Socials</p>
+        <div className="footer-col">
+          <p className="footer-title">Socials</p>
           <div className="f-body">
-            <p className="f-p">
+            <p className="footer-text">
               Facebook
               <br />
               Twitter
@@ -84,9 +84,9 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="f-col">
-          <p className="f-title">Our App</p>
-          <div className="f-images">
+        <div className="footer-col">
+          <p className="footer-title">Our App</p>
+          <div className="footer-img">
             <img src="https://codepath-student-store-demo.surge.sh/assets/app_store.a7d8c549.svg" />
             <img src="https://codepath-student-store-demo.surge.sh/assets/google_play.27aab7c8.svg" />
           </div>

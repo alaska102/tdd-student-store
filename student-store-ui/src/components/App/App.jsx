@@ -1,27 +1,22 @@
 import * as React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 import NotFound from "../NotFound/NotFound";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import Home from "../Home/Home";
 import SubNavbar from "../SubNavbar/SubNavBar";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Hero from "../Hero/Hero";
 import axios from "axios";
-import "./App.css";
 
 export default function App() {
-  const [products, setProducts] = React.useState([]);
-  const [isFetching, setIsFetching] = React.useState(false);
-  const [error, setError] = React.useState(null);
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [shoppingCart, setShoppingCart] = React.useState([]);
-  const [checkoutForm, setCheckoutForm] = React.useState({name: "", email: ""});
-  const [shoppingPrice, setShoppingPrice] = React.useState(0);
-  const [postStatus, setPostStatus] = React.useState(0);
-
-
+  let [products, setProducts] = React.useState([]);
+  let [isFetching, setIsFetching] = React.useState(false);
+  let [error, setError] = React.useState("");
+  let [isOpen, setIsOpen] = React.useState(false);
+  let [shoppingCart, setShoppingCart] = React.useState([]);
+  let [checkoutForm, setCheckoutForm] = React.useState({ name: "", email: "" });
 
   React.useEffect(() => {
     axios
@@ -48,73 +43,64 @@ export default function App() {
   };
 
   const handleAddItemToCart = (productId) => {
-    let found = false;
-    for(let i = 0; i < shoppingCart.length; i++) {
-      if(shoppingCart[i].itemId == productId) {
-        const newArr = [...shoppingCart];
-        newArr[i].quantity++;
-        setShoppingCart(newArr);
-        setShoppingPrice(shoppingPrice + products[productId-1].price);
-        found = true;
-        break;
+    let scCopy = shoppingCart;
+    let scCopy2 = shoppingCart;
+    for (var i = 0; i < shoppingCart.length; i++) {
+      if (shoppingCart[i].itemId == productId) {
+        let newSC = shoppingCart
+          .slice(0, i)
+          .concat([
+            { itemId: productId, quantity: shoppingCart[i].quantity + 1 },
+          ]);
+        newSC = newSC.concat(scCopy.slice(i + 1));
+        setShoppingCart(newSC);
+        return;
       }
     }
-    if(!found) {
-      setShoppingCart((currentValue) =>
-      {
-        return [...currentValue, {itemId: productId, quantity: 1}]
-      });
-      setShoppingPrice(shoppingPrice + products[productId-1].price);
-    }
-  }
+    scCopy.push({ itemId: productId, quantity: 1 });
+    setShoppingCart(scCopy);
+  };
 
   const handleRemoveItemFromCart = (productId) => {
-    for(let i = 0; i < shoppingCart.length; i++) {
-      if(shoppingCart[i].itemId == productId) {
-        if(shoppingCart[i].quantity>1) {
-          const newArr = [...shoppingCart];
-        newArr[i].quantity--;
-        setShoppingCart(newArr);
-          setShoppingPrice(shoppingPrice - products[productId-1].price);
-        }
-        else {
-          let newCart = [...shoppingCart];
-          newCart.splice(i, 1);
-          setShoppingCart(newCart);
-          setShoppingPrice(shoppingPrice - products[productId-1].price);
+    let scCopy = shoppingCart;
+    let scCopy2 = shoppingCart;
+    for (var i = 0; i < shoppingCart.length; i++) {
+      if (shoppingCart[i].itemId == productId) {
+        if (shoppingCart[i].quantity !== 1) {
+
+          let newSC = scCopy2
+            .slice(0, i)
+            .concat([
+              { itemId: productId, quantity: shoppingCart[i].quantity - 1 },
+            ]);
+          newSC = newSC.concat(scCopy.slice(i + 1));
+          setShoppingCart(newSC);
+        } else {
+          let newSC = scCopy2.slice(0, i).concat(scCopy.slice(i + 1));
+          setShoppingCart(newSC);
         }
       }
     }
-  }
-
-  const handleFormSubmitted = () => {
-    setShoppingPrice(0);
-    setShoppingCart([]);
-    setCheckoutForm({name : "", email: ""});
-  }
-
+  };
 
   const handleOnCheckoutFormChange = (name, value) => {
-    if(name=="email") {
-      setCheckoutForm({name: checkoutForm.name, email: value});
-    }
-    else {
-      setCheckoutForm({name: value, email: checkoutForm.email});
-    }
-  }
+    setCheckoutForm({ ...checkoutForm, [name]: value });
+  };
 
-
-  const handleOnSubmitCheckoutForm = async () => {
-    try {
-      await axios.post(url, {user: {name: checkoutForm.name, email: checkoutForm.email}, shoppingCart: shoppingCart});
-      setPostStatus(1);
-    }
-    catch (error) {
-      setError(error);
-      console.log(error);
-      setPostStatus(-1);
-    }
-  }
+  const handleOnSubmitCheckoutForm = () => {
+    axios
+      .post("https://codepath-store-api.herokuapp.com/store/checkout", {
+        user: { name: checkoutForm.name, email: checkoutForm.email },
+        shoppingCart: shoppingCart,
+      })
+      .then((response) => {
+        setShoppingCart([]);
+        setCheckoutForm({ email: "", name: "" });
+      })
+      .catch((e) => {
+        setError(e);
+      });
+  };
 
   return (
     <div className="app">
@@ -132,7 +118,7 @@ export default function App() {
                     products={products}
                     checkoutForm={checkoutForm}
                     handleOnCheckoutFormChange={handleOnCheckoutFormChange}
-                    handleOnsubmitCheckoutForm={handleOnSubmitCheckoutForm}
+                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
                     handleOnToggle={handleOnToggle}
                   />
                   <Home
@@ -157,7 +143,7 @@ export default function App() {
                     products={products}
                     checkoutForm={checkoutForm}
                     handleOnCheckoutFormChange={handleOnCheckoutFormChange}
-                    handleOnsubmitCheckoutForm={handleOnSubmitCheckoutForm}
+                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
                     handleOnToggle={handleOnToggle}
                   />
                   <Hero />

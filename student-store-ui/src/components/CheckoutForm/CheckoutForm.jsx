@@ -1,28 +1,55 @@
-import * as React from "react"
-import "./CheckoutForm.css"
+import * as React from "react";
+import "./CheckoutForm.css";
 
-export default function CheckoutForm({handleFormSubmitted, error, postStatus, isOpen, shoppingCart, checkoutForm={email: "", text: "Student Name"}, handleOnCheckoutFormChange, handleOnSubmitCheckoutForm}) {
-    if(postStatus==1) {
-        React.useEffect( () =>{
-            handleFormSubmitted();
-        }, [postStatus])
-    return(
-        <div className="success" >Success</div>
-    )
-    }
-    else if(postStatus == -1) {
-        return (
-            <div className="error">{error.message}</div>
-        )
-    }
-    else {
-        return (
-            <div className="checkout-form">
-                <input className="checkout-form-input" type="email" name="email" placeholder="student@codepath.org" value={checkoutForm.email} onChange={(event) => handleOnCheckoutFormChange("email", event.target.value)}></input>
-                <input className="checkout-form-input" type="text" name="name" placeholder="Student Name" value={checkoutForm.name} onChange={(event) => handleOnCheckoutFormChange("name", event.target.value)}></input>
-                <button onClick={handleOnSubmitCheckoutForm} className="checkout-button">Checkout</button>
-            </div>
-        )
-    }        
-    
+export default function CheckoutForm({
+  isOpen,
+  shoppingCart,
+  checkoutForm,
+  handleOnCheckoutFormChange,
+  handleOnSubmitCheckoutForm,
+}) {
+
+  return (
+    <div className="checkout-form">
+      <h1 className="cf-title">Payment Info</h1>
+      <div className="input-field">
+        <label className="label">Name</label>
+        <div className="control">
+          <input
+            type="text"
+            name="name"
+            placeholder="Student Name"
+            value={checkoutForm.name}
+            onChange={(evt) =>
+              handleOnCheckoutFormChange("name", evt.target.value)
+            }
+            className="checkout-form-input"
+          ></input>
+        </div>
+      </div>
+      <div className="input-field">
+        <label className="label">Email</label>
+        <div className="control">
+          <input
+            type="email"
+            name="email"
+            placeholder="student@codepath.org"
+            value={checkoutForm.email}
+            onChange={(evt) =>
+              handleOnCheckoutFormChange("email", evt.target.value)
+            }
+            className="checkout-form-input"
+          ></input>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className="checkout-button"
+        onClick={() => handleOnSubmitCheckoutForm()}
+      >
+        Checkout
+      </button>
+    </div>
+  );
 }

@@ -9,7 +9,7 @@ export default function Sidebar({
   products,
   checkoutForm,
   handleOnCheckoutFormChange,
-  handleOnsubmitCheckoutForm,
+  handleOnSubmitCheckoutForm,
   handleOnToggle,
 }) {
   return (
@@ -35,8 +35,18 @@ export default function Sidebar({
           <button className="toggle-button" onClick={() => handleOnToggle()}>
             <i class="material-icons md-48">arrow_backward</i>
           </button>
-          <ShoppingCart />
-          <CheckoutForm />
+          <ShoppingCart
+                      isOpen={isOpen}
+                      products={products}
+                      shoppingCart={shoppingCart}
+           />
+          <CheckoutForm
+                      isOpen={isOpen}
+                      shoppingCart={shoppingCart}
+                      checkoutForm={checkoutForm}
+                      handleOnCheckoutFormChange={handleOnCheckoutFormChange}
+                      handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+           />
         </div>
       )}
     </section>

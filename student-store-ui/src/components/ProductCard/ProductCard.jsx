@@ -38,7 +38,7 @@ export default function ProductCard({
         {showDescription && (
           <p className="product-description">{product.description}</p>
         )}
-        <div className="pc-buttons">
+        <div className="product-card-buttons">
           <button
             className="add"
             onClick={() => {

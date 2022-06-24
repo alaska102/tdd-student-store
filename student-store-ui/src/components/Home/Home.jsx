@@ -15,11 +15,8 @@ export default function Home({
   getQuantity,
 }) {
   return (
-    // Renders JSX that is wrapped by a `div` element with a `className` of `home`
     <div className="home">
-      {/* renders `Hero` */}
       <Hero />
-      {/* renders `ProductGrid` */}
       <ProductGrid
         products={products}
         handleAddItemToCart={handleAddItemToCart}

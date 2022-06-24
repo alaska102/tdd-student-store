@@ -10,8 +10,10 @@ export default function ProductGrid({
   setIsFetching,
   getQuantity,
 }) {
+
   const [currentTab, setCurrentTab] = React.useState("all");
   const [searchValue, setSearchValue] = React.useState("");
+  const [gridTitle, setGridTitle] = React.useState("Best Selling Products");
 
   const clothingProducts = products.filter((product) => {
     return product.category == "clothing";
@@ -29,11 +31,11 @@ export default function ProductGrid({
     return product.name.toLowerCase().includes(searchValue);
   });
 
-  var gridTitle = "Best Selling Products"; 
 
   React.useEffect(() => {
     setSearchValue("");
   }, [currentTab]);
+
   return (
     <div className="product-grid">
       <div className="sub-navbar">
@@ -49,6 +51,7 @@ export default function ProductGrid({
                 onChange={(event) => {
                   setSearchValue(event.target.value);
                   setCurrentTab("");
+                  setGridTitle("");
                 }}
               ></input>
               <i class="material-icons">search</i>
@@ -71,7 +74,7 @@ export default function ProductGrid({
                     : null
                 }
                 id="all"
-                onClick={() => setCurrentTab("all")}
+                onClick={() => {setCurrentTab("all")}}
               >
                 All Categories
               </button>
@@ -83,7 +86,7 @@ export default function ProductGrid({
                     ? { borderBottom: "solid 2px #8EB1C7" }
                     : null
                 }
-                onClick={() => setCurrentTab("clothing")}
+                onClick={() => {setCurrentTab("clothing");{setGridTitle("Clothing")}}}
               >
                 Clothing
               </button>
@@ -95,9 +98,7 @@ export default function ProductGrid({
                     ? { borderBottom: "solid 2px #8EB1C7" }
                     : null
                 }
-                onClick={() => {
-                  setCurrentTab("food");
-                }}
+                onClick={() => {setCurrentTab("food");{setGridTitle("Food")}}}
               >
                 Food
               </button>
@@ -109,7 +110,7 @@ export default function ProductGrid({
                     ? { borderBottom: "solid 2px #8EB1C7"}
                     : null
                 }
-                onClick={() => setCurrentTab("accessories")}
+                onClick={() => {setCurrentTab("accessories");{setGridTitle("Accessories")}}}
                 
               >
                 Accessories
@@ -122,7 +123,7 @@ export default function ProductGrid({
                     ? { borderBottom: "solid 2px #8EB1C7" }
                     : null
                 }
-                onClick={() => setCurrentTab("tech")}
+                onClick={() => {setCurrentTab("tech");{setGridTitle("Tech")}}}
               >
                 Tech
               </button>

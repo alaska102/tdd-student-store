@@ -57,20 +57,18 @@ export default function App() {
   };
 
   const handleRemoveItemFromCart = (productId) => {
-    let cartCopy = shoppingCart;
-    let cartCopy2 = shoppingCart;
     for (var i = 0; i < shoppingCart.length; i++) {
       if (shoppingCart[i].itemId == productId) {
         if (shoppingCart[i].quantity !== 1) {
-          let newSC = cartCopy2
+          let newSC = shoppingCart
             .slice(0, i)
             .concat([
               { itemId: productId, quantity: shoppingCart[i].quantity - 1 },
             ]);
-          newSC = newSC.concat(cartCopy.slice(i + 1));
+          newSC = newSC.concat(shoppingCart.slice(i + 1));
           setShoppingCart(newSC);
         } else {
-          let newSC = cartCopy2.slice(0, i).concat(cartCopy.slice(i + 1));
+          let newSC = shoppingCart.slice(0, i).concat(shoppingCart.slice(i + 1));
           setShoppingCart(newSC);
         }
       }

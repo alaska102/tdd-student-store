@@ -145,5 +145,162 @@
       "price": 999.99
     }
   ],
-  "purchases": []
+  "purchases": [
+    {
+      "id": 1,
+      "name": "Hailey",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 1,
+          "quantity": 4
+        }
+      ],
+      "total": 4.3065,
+      "createdAt": "2022-06-29T21:08:21.638Z"
+    },
+    {
+      "id": 2,
+      "name": "hahe",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 3,
+          "quantity": 3
+        }
+      ],
+      "total": 9.754875,
+      "createdAt": "2022-06-29T21:11:46.926Z"
+    },
+    {
+      "id": 3,
+      "name": "fd",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 4,
+          "quantity": 3
+        }
+      ],
+      "total": 10.603125,
+      "createdAt": "2022-06-29T21:13:44.622Z"
+    },
+    {
+      "id": 4,
+      "name": "erer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 3,
+          "quantity": 2
+        }
+      ],
+      "total": 6.50325,
+      "createdAt": "2022-06-29T21:13:49.365Z"
+    },
+    {
+      "id": 5,
+      "name": "haukey",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 2,
+          "quantity": 4
+        }
+      ],
+      "total": 6.525,
+      "createdAt": "2022-06-29T21:14:33.937Z"
+    },
+    {
+      "id": 6,
+      "name": "fer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 2,
+          "quantity": 3
+        }
+      ],
+      "total": 4.89375,
+      "createdAt": "2022-06-29T21:15:08.088Z"
+    },
+    {
+      "id": 7,
+      "name": "ewdwe",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 3,
+          "quantity": 3
+        }
+      ],
+      "total": 9.754875,
+      "createdAt": "2022-06-29T21:15:18.954Z"
+    },
+    {
+      "id": 8,
+      "name": "fer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": "2",
+          "quantity": 4
+        }
+      ],
+      "total": 6.525,
+      "createdAt": "2022-06-29T21:17:36.801Z"
+    },
+    {
+      "id": 9,
+      "name": "fer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 2,
+          "quantity": 3
+        }
+      ],
+      "total": 4.89375,
+      "createdAt": "2022-06-29T21:23:41.043Z"
+    },
+    {
+      "id": 10,
+      "name": "fer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 8,
+          "quantity": 3
+        }
+      ],
+      "total": 65.217375,
+      "createdAt": "2022-06-29T21:25:26.681Z"
+    },
+    {
+      "id": 11,
+      "name": "fer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 8,
+          "quantity": 3
+        }
+      ],
+      "total": 65.217375,
+      "createdAt": "2022-06-29T21:28:13.613Z"
+    },
+    {
+      "id": 12,
+      "name": "fer",
+      "email": "haileygarcia@fb.com",
+      "order": [
+        {
+          "itemId": 9,
+          "quantity": 3
+        }
+      ],
+      "total": 16.279875,
+      "createdAt": "2022-06-29T21:28:20.816Z"
+    }
+  ]
 }

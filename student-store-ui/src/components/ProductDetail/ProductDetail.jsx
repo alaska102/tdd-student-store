@@ -21,7 +21,7 @@ export default function ProductDetail({
 
   useEffect(() => {
     axios
-      .get(`https://codepath-store-api.herokuapp.com/store/${productId}`)
+      .get(`http://localhost:3001/store/${productId}`)
       .then((response) => {
         setProduct(response.data.product);
         setIsFetching(false);

@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./CheckoutForm.css";
 import {useState} from 'react';
-
 const TAX_RATE = 0.0875;  
 
 
@@ -117,7 +116,7 @@ export default function CheckoutForm({
               ))}
             <li>
               Before taxes, the subtotal was $
-              {(receipt.total / 1 + TAX_RATE).toFixed(2)}
+              {(receipt.total / (1 + TAX_RATE)).toFixed(2)}
             </li>
             <li>
               After taxes and fees were applied, the total comes out to $

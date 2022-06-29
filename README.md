@@ -26,7 +26,7 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 
 - [X] User can click in the top navigation bar to scroll to the relevant section.
 - [X] User sees a "not found" display when searching for a nonexistent product.
-- [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
+- [X] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
 - [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
 - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 
@@ -243,42 +243,42 @@ The following specifications were met on the Express backend and the React front
         - [X] The `checkoutForm` should be reset to its default state.
 
 **Server** - Create an Express server
-  - [ ] Wire up the appropriate middleware and error handlers in the `app.js` file
-  - [ ] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
-  - [ ] Have a `server.js` file that starts the app by listening on port `3001`.
+  - [X] Wire up the appropriate middleware and error handlers in the `app.js` file
+  - [X] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
+  - [X] Have a `server.js` file that starts the app by listening on port `3001`.
 
 **Models** - The API should use a `Store` model that handles the following
-  - [ ] List all products currently in the `db.json` file
-  - [ ] Fetch a single product by its id
-  - [ ] Create a purchase order
+  - [X] List all products currently in the `db.json` file
+  - [X] Fetch a single product by its id
+  - [X] Create a purchase order
 
 **Routes** - The API should contain a route mounted at the `/store` endpoint
-  - [ ] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
-  - [ ] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
-  - [ ] It should allow `POST` requests to the `/store` endpoint:
-    - [ ] The endpoint should create purchase orders for users and save them to the `db.json` file
-    - [ ] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
-      - [ ] The `shoppingCart` field should contain the user's order.
-        - [ ] This should be an array of objects.
-        - [ ] Each object in the array should have two fields:
+  - [X] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
+  - [X] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
+  - [X] It should allow `POST` requests to the `/store` endpoint:
+    - [X] The endpoint should create purchase orders for users and save them to the `db.json` file
+    - [X] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
+      - [X] The `shoppingCart` field should contain the user's order.
+        - [X] This should be an array of objects.
+        - [X] Each object in the array should have two fields:
           <!-- - [ ] The `item` field should store an object of the item being purchased -->
-          - [ ] The `itemId` field should store the `id` of the item being purchased
-          - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
-      - [ ] The `user` field should contain the name and email of the person placing the order.
-      - [ ] When either the `shoppingCart` or `user` fields are missing, it should throw a `400` error.
-      - [ ] If there are duplicate items in the `shoppingCart`, it should throw a `400` error.
-      - [ ] If either the `quantity` or `itemId` field is missing for any of the items in the `shoppingCart`, a `400` error should be thrown.
-      - [ ] When both are there, it should calculate the total cost of all the items (including quantities), add a `8.75%` tax to the total, and create a new purchase object containing 6 required fields and 1 optional field:
+          - [X] The `itemId` field should store the `id` of the item being purchased
+          - [X] The `quantity` field should store a number representing how many of that item the user is purchasing.
+      - [X] The `user` field should contain the name and email of the person placing the order.
+      - [X] When either the `shoppingCart` or `user` fields are missing, it should throw a `400` error.
+      - [X] If there are duplicate items in the `shoppingCart`, it should throw a `400` error.
+      - [X] If either the `quantity` or `itemId` field is missing for any of the items in the `shoppingCart`, a `400` error should be thrown.
+      - [X] When both are there, it should calculate the total cost of all the items (including quantities), add a `8.75%` tax to the total, and create a new purchase object containing 6 required fields and 1 optional field:
         - **required**:
-          - [ ] `id` - the new `id` of the purchase should be equal to one more than the current number of existing purchases
-          - [ ] `name` - the name of the user making the purchase
-          - [ ] `email` - the email of the user making the purchase
-          - [ ] `order` - the `shoppingCart` value sent in the `POST` request
-          - [ ] `total` - the calculated total of the order
-          - [ ] `createdAt` - a string representation of the date and time when the order was placed
+          - [X] `id` - the new `id` of the purchase should be equal to one more than the current number of existing purchases
+          - [X] `name` - the name of the user making the purchase
+          - [X] `email` - the email of the user making the purchase
+          - [X] `order` - the `shoppingCart` value sent in the `POST` request
+          - [X] `total` - the calculated total of the order
+          - [X] `createdAt` - a string representation of the date and time when the order was placed
         - **optional**:
-          - [ ] `receipt` - text describing the order (what might go on a receipt)
-      - [ ] It should then send a JSON response back to the client with the new purchase like so: `{ "purchase": purchase }`. The response should have a `201` status code for a resource created action.
+          - [X] `receipt` - text describing the order (what might go on a receipt)
+      - [X] It should then send a JSON response back to the client with the new purchase like so: `{ "purchase": purchase }`. The response should have a `201` status code for a resource created action.
 
 ---
 
@@ -288,19 +288,22 @@ The following specifications were met on the Express backend and the React front
 
 Week 2: I think the labs did a good job introducing components and React. The Twitter lab especially made certain things, like how to render different pieces a lot more clear. 
 
+Week 3: I don't think the labs prepared me enough to do the assignments. The gift giving lab gave a good introduction to NodeJS but it was not enough for this project, but UW resources were super helpful (thanks Olga!) 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
 Week 2: If I had more time, I would spend more time working on making the website more responsive. Although I used a dynamic grid, I think I could have been better with making the text on the Hero componenet more responsive. 
 
+Week 3: If I had more time, I would have worked longer on trying to complete the stretch features, I struggled a lot more with backend and spent the majority of my time this week trying to understand it. 
+
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
 Week 2: I think the Checkout & Shopping Cart pages could have had a better UI. I think I followed the example site too much instead of letting my personality shine through. For example, I think it would have been better to not have used the sidebar for the recipt page, rather a popout could have been better. 
 
-### Open-source libraries used
-
+Week 3: I love how my UI turned out, but I think I could have implemented more features, specifically the stretch features, but creating the backend took a significant amount of time for me.
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
+Shoutout to Olga for giving me NodeJS resources!

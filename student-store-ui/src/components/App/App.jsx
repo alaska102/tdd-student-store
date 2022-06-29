@@ -23,7 +23,7 @@ export default function App() {
 
   useEffect(() => {
     axios
-      .get("https://codepath-store-api.herokuapp.com/store")
+      .get("http://localhost:3001/store")
       .then((response) => {
         setProducts(response.data.products);
       })
@@ -82,7 +82,7 @@ export default function App() {
   const handleOnSubmitCheckoutForm = () => {
     setError("");
     axios
-      .post("https://codepath-store-api.herokuapp.com/store", {
+      .post("http://localhost:3001/store", {
         user: { name: checkoutForm.name, email: checkoutForm.email },
         shoppingCart: shoppingCart,
       })

@@ -19,7 +19,7 @@ export default function Sidebar({
 }) {
   return (
     <section className="sidebar">
-      {isOpen == false && (
+      {!isOpen && (
         <div className="sidebar-closed">
           <button className="toggle-button" onClick={() => handleOnToggle()}>
             <i className="material-icons md-48">arrow_forward</i>
@@ -35,7 +35,7 @@ export default function Sidebar({
           </button>
         </div>
       )}
-      {isOpen == true && (
+      {isOpen && (
         <div className="sidebar-open">
           <button className="toggle-button" onClick={() => handleOnToggle()}>
             <i className="material-icons md-48">arrow_backward</i>

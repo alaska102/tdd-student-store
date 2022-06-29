@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./ProductGrid.css";
 import ProductCard from "../ProductCard/ProductCard";
+import {useState, useEffect} from 'react';
 
 export default function ProductGrid({
   products,
@@ -12,28 +13,17 @@ export default function ProductGrid({
 }) {
 
 
-  const [currentTab, setCurrentTab] = React.useState("all");
-  const [searchValue, setSearchValue] = React.useState("");
-  const [gridTitle, setGridTitle] = React.useState("Best Selling Products");
+  const [currentTab, setCurrentTab] = useState("all");
+  const [searchValue, setSearchValue] = useState("");
+  const [gridTitle, setGridTitle] = useState("Best Selling Products");
 
-  const clothingProducts = products.filter((product) => {
-    return product.category == "clothing";
-  });
-  const foodProducts = products.filter((product) => {
-    return product.category == "food";
-  });
-  const accessoriesProducts = products.filter((product) => {
-    return product.category == "accessories";
-  });
-  const techProducts = products.filter((product) => {
-    return product.category == "tech";
-  });
-  const searchProducts = products.filter((product) => {
-    return product.name.toLowerCase().includes(searchValue);
-  });
+  const clothingProducts = products.filter((product) => product.category == 'clothing');
+  const foodProducts = products.filter((product) => product.category == "food");
+  const accessoriesProducts = products.filter((product) => product.category == "accessories");
+  const techProducts = products.filter((product) => product.category == "tech");
+  const searchProducts = products.filter((product) => product.name.toLowerCase().includes(searchValue));
 
-
-  React.useEffect(() => {
+  useEffect(() => {
     setSearchValue("");
   }, [currentTab]);
 

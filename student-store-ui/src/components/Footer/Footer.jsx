@@ -87,8 +87,8 @@ export default function Footer() {
         <div className="footer-col">
           <p className="footer-title">Our App</p>
           <div className="footer-img">
-            <img src="https://codepath-student-store-demo.surge.sh/assets/app_store.a7d8c549.svg" />
-            <img src="https://codepath-student-store-demo.surge.sh/assets/google_play.27aab7c8.svg" />
+            <img src="https://codepath-student-store-demo.surge.sh/assets/app_store.a7d8c549.svg" alt="Apple App Store Logo"/>
+            <img src="https://codepath-student-store-demo.surge.sh/assets/google_play.27aab7c8.svg" alt="Google Play Store Logo"/>
           </div>
         </div>
       </div>

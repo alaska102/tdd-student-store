@@ -1,5 +1,9 @@
 import * as React from "react";
 import "./CheckoutForm.css";
+import {useState} from 'react';
+
+const TAX_RATE = 0.0875;  
+
 
 export default function CheckoutForm({
   isOpen,
@@ -15,8 +19,7 @@ export default function CheckoutForm({
   error,
 }) {
 
-  const TAX_RATE = 0.0875;  
-  const [hasCheckedOut, setHasCheckedOut] = React.useState(false);
+  const [hasCheckedOut, setHasCheckedOut] = useState(false);
 
 
   const getProductInfo = (itemId) => {
@@ -79,14 +82,14 @@ export default function CheckoutForm({
       <br></br>
 
       <h1 className="checkout-form-input-title">Checkout Info</h1>
-      {hasCheckedOut == false && (
+      {!hasCheckedOut && (
         <p className="checkout-input-false">
           A confirmation email will be sent to you so that you can confirm this
           order. Once you have confirmed the order, it will be delivered to your
           dorm room.
         </p>
       )}
-      {hasCheckedOut && checkoutFormSubmitSuccess == false && (
+      {hasCheckedOut && !checkoutFormSubmitSuccess && (
         <p className="checkout-input-false">
           A confirmation email will be sent to you so that you can confirm this
           order. Once you have confirmed the order, it will be delivered to your

@@ -1,10 +1,12 @@
 import * as React from "react";
 import "./SubNavbar.css";
+import {useState, useEffect} from 'react';
+
 
 export default function SubNavbar() {
-  const [currentTab, setCurrentTab] = React.useState("sn-1");
-  const [searchValue, setSearchValue] = React.useState("");
-  React.useEffect(() => {
+  const [currentTab, setCurrentTab] = useState("sn-1");
+  const [searchValue, setSearchValue] = useState("");
+  useEffect(() => {
     setSearchValue("");
   }, [currentTab]);
   

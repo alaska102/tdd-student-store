@@ -1,9 +1,16 @@
 import * as React from "react";
 import "./ShoppingCart.css";
+import {useState, useEffect} from 'react';
+const TAX_RATE = 0.0875;
 
-export default function ShoppingCart({ isOpen, products, shoppingCart }) {
-  const [subtotal, setSubtotal] = React.useState(0);
-  const TAX_RATE = 0.0875;
+
+export default function ShoppingCart({ 
+  isOpen, 
+  products, 
+  shoppingCart 
+}) {
+
+  const [subtotal, setSubtotal] = useState(0);
 
   const getProductInfo = (itemId) => {
     for (let i = 0; i < products.length; i++) {
@@ -13,7 +20,7 @@ export default function ShoppingCart({ isOpen, products, shoppingCart }) {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSubtotal(0);
     let count = 0;
     for (let i = 0; i < shoppingCart.length; i++) {

@@ -23,7 +23,7 @@ export default function About() {
             </p>
           </div>
           <div className="about-media">
-            <img src="https://codepath-student-store-demo.surge.sh/assets/giant_codepath.6952ef57.svg" />
+            <img src="https://codepath-student-store-demo.surge.sh/assets/giant_codepath.6952ef57.svg" alt="Codepath Logo" />
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from 'react';
 import "./ProductDetail.css";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -13,12 +14,12 @@ export default function ProductDetail({
   setIsFetching,
   getQuantity,
 }) {
-  const [product, setProduct] = React.useState(null);
+  const [product, setProduct] = useState(null);
   const { productId } = useParams();
 
   let navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     axios
       .get(`https://codepath-store-api.herokuapp.com/store/${productId}`)
       .then((response) => {

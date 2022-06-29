@@ -6,21 +6,22 @@ import ProductDetail from "../ProductDetail/ProductDetail";
 import Home from "../Home/Home";
 import SubNavbar from "../SubNavbar/SubNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {useState, useEffect} from 'react';
 import "./App.css";
 import Hero from "../Hero/Hero";
 import axios from "axios";
 
 export default function App() {
-  const [products, setProducts] = React.useState([]);
-  const [isFetching, setIsFetching] = React.useState(false);
-  const [error, setError] = React.useState("");
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [shoppingCart, setShoppingCart] = React.useState([]);
-  const [checkoutForm, setCheckoutForm] = React.useState({ name: "", email: "" });
-  const [checkoutFormSubmitSuccess, setCheckoutFormSubmitSuccess] = React.useState(false);
-  const [receipt, setReceipt] = React.useState({});
+  const [products, setProducts] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [shoppingCart, setShoppingCart] = useState([]);
+  const [checkoutForm, setCheckoutForm] = useState({ name: "", email: "" });
+  const [checkoutFormSubmitSuccess, setCheckoutFormSubmitSuccess] = useState(false);
+  const [receipt, setReceipt] = useState({});
 
-  React.useEffect(() => {
+  useEffect(() => {
     axios
       .get("https://codepath-store-api.herokuapp.com/store")
       .then((response) => {

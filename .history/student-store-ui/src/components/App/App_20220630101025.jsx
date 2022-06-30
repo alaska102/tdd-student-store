@@ -169,8 +169,9 @@ export default function App() {
               }
             />
             <Route path="*" element={<NotFound />} />
-            <Route path="/purchases" element={<PurchaseGrid />}/>
+            <Route path="/purchases" element={<PurchaseGrid purchases={purchases}/>}/>
             <Route path="/purchases/:purchaseId"/>
+
           </Routes>
         </main>
       </BrowserRouter>

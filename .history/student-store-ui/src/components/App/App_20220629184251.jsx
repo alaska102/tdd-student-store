@@ -7,7 +7,6 @@ import Home from "../Home/Home";
 import SubNavbar from "../SubNavbar/SubNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {useState, useEffect} from 'react';
-import PurchaseGrid from "../PurchaseGrid/PurchaseGrid";
 import "./App.css";
 import Hero from "../Hero/Hero";
 import axios from "axios";
@@ -169,8 +168,6 @@ export default function App() {
               }
             />
             <Route path="*" element={<NotFound />} />
-            <Route path="/purchases" element={<PurchaseGrid />}/>
-            <Route path="/purchases/:purchaseId"/>
           </Routes>
         </main>
       </BrowserRouter>

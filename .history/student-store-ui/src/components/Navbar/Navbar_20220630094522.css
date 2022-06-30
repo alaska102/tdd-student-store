@@ -1,0 +1,26 @@
+.navbar {
+  width: 100%;
+  color: #fff;
+  height: 70px;
+  display: flex;
+  background-color: #533745;
+  padding: 0 40px;
+  position: fixed;
+}
+
+.nav-link {
+  font-weight: 550;
+  width: 100%;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.nav-content {
+  max-width: 1400px;
+  padding-left: 150px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

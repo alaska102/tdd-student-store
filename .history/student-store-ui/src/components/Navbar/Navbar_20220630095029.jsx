@@ -14,7 +14,7 @@ export default function Navbar() {
         <Link to="about" spy={true} smooth={true} className="nav-link">About Us</Link>
         <Link to="contact" spy={true} smooth={true} className="nav-link">Contact Us</Link>
         <Link to="product-grid" spy={true} smooth={true} className="nav-link">Buy Now</Link>
-        <OtherLink to="/purchases" className="nav-link" style={{ textDecoration: 'none' , color: 'white'}}>Past Purchases</OtherLink> 
+        <OtherLink to="/" className="nav-link">Past Purchases</OtherLink> 
       </div>
     </nav>
   );

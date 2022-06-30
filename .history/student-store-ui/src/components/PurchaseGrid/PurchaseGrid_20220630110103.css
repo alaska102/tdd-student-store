@@ -1,0 +1,10 @@
+.purchase-title {
+    color: black;
+    font-size: 50px;
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 100px;
+
+}

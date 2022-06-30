@@ -7,10 +7,11 @@ import Home from "../Home/Home";
 import SubNavbar from "../SubNavbar/SubNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {useState, useEffect} from 'react';
-import PurchaseGrid from "../PurchaseGrid/PurchaseGrid";
+import PurchaseGrid from "../OrderDetail/PurchaseGrid";
 import "./App.css";
 import Hero from "../Hero/Hero";
 import axios from "axios";
+import OrderDetails from "../OrderDetails/OrderDetails";
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -169,7 +170,10 @@ export default function App() {
               }
             />
             <Route path="*" element={<NotFound />} />
-            <Route path="/purchases" element={<PurchaseGrid />}/>
+            <Route path="/purchases" element={<OrderDetails 
+            setIsFetching={setIsFetching} 
+            isFetching={isFetching}
+            />}/>
             <Route path="/purchases/:purchaseId"/>
           </Routes>
         </main>

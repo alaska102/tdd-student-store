@@ -4,8 +4,12 @@
 
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
+Week 2:
 ![GIF #1](EbPQ4QBBmQ.gif)
 ![GIF #2](hN19OUi9gl.gif)
+
+Week 3:
+![GIF #3](GmBP2Oq9az.gif)
 
 ### Application Features
 
@@ -294,7 +298,7 @@ Week 3: I don't think the labs prepared me enough to do the assignments. The gif
   
 Week 2: If I had more time, I would spend more time working on making the website more responsive. Although I used a dynamic grid, I think I could have been better with making the text on the Hero componenet more responsive. 
 
-Week 3: If I had more time, I would have worked longer on trying to complete the stretch features, I struggled a lot more with backend and spent the majority of my time this week trying to understand it. 
+Week 3: If I had more time, I would have worked longer on trying to complete the stretch features, I struggled a lot more with backend and spent the majority of my time this week trying to understand it. I started the past purchases page but I didn't have enough time to finish it. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 

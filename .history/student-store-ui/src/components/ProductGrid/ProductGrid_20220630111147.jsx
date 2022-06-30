@@ -64,7 +64,7 @@ export default function ProductGrid({
                     : null
                 }
                 id="all"
-                onClick={() => {setCurrentTab("all"); {setGridTitle("All Categories")}}}
+                onClick={() => {setCurrentTab("all")}}
               >
                 All Categories
               </button>

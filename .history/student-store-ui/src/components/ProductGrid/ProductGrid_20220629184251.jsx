@@ -42,7 +42,7 @@ export default function ProductGrid({
                 onChange={(event) => {
                   setSearchValue(event.target.value);
                   setCurrentTab("");
-                  setGridTitle("All Categories");
+                  setGridTitle("");
                 }}
               ></input>
               <i className="material-icons">search</i>
@@ -64,7 +64,7 @@ export default function ProductGrid({
                     : null
                 }
                 id="all"
-                onClick={() => {setCurrentTab("all"); {setGridTitle("All Categories")}}}
+                onClick={() => {setCurrentTab("all")}}
               >
                 All Categories
               </button>
